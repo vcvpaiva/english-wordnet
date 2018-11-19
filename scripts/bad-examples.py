@@ -28,5 +28,5 @@ for synset in tree.findall(".//Synset"):
     synset_id = synset.attrib["id"]
     for example in synset.findall("Example"):
         if not any(is_likely_in(example.text, lemma) for lemma in synsets[synset_id]):
-            print("%s,\"%s\",\"%s\"" % (synset_id,escape_csv(example.text),escape_csv(", ".join(synsets[synset_id]))))
+            print("%s,\"%s\",\"%s\",,," % (synset_id,escape_csv(example.text),escape_csv(", ".join(synsets[synset_id]))))
 print("ID,Example,Synset Members,Not a problem,New Member,New Definition")
